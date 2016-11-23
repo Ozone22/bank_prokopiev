@@ -1,0 +1,43 @@
+source 'https://rubygems.org'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'pg'
+gem 'puma', '~> 3.0'
+
+# Other gems
+gem 'rack-cors'
+gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git'
+gem 'interactor'
+gem 'responders'
+gem 'jwt'
+gem 'bcrypt'
+
+group :test do
+  gem 'capybara'
+  gem 'email_spec'
+  gem 'shoulda-matchers'
+  gem 'json_spec'
+end
+
+group :development, :test do
+  gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'factory_girl_rails'
+  gem 'dotenv-rails'
+  gem 'faker'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rspec_api_documentation', branch: 'rspec-3.5'
+end
+
+group :development do
+  gem 'listen', '~> 3.0.5'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
