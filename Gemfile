@@ -8,6 +8,7 @@ gem 'puma', '~> 3.0'
 
 # Other gems
 gem 'rack-cors'
+gem 'decent_exposure'
 gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git'
 gem 'interactor'
 gem 'responders'

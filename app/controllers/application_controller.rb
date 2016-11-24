@@ -6,7 +6,8 @@ class ApplicationController < ActionController::API
   protected
 
   def correct_user
-    user = User.find_by(id: params[:id])
+    id = params[:user_id] || params[:id]
+    user = User.find_by(id: id)
     head :forbidden if user && current_user != user
   end
 

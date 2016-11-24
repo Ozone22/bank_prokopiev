@@ -1,16 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe User, type: :model do
   subject(:user) { described_class.new(attributes_for(:user)) }
 
   it { is_expected.to respond_to(:email) }
   it { is_expected.to respond_to(:password) }
-  it { is_expected.to respond_to(:password_confirmation) }
   it { is_expected.to respond_to(:first_name) }
   it { is_expected.to respond_to(:last_name) }
   it { is_expected.to respond_to(:middle_name) }
   it { is_expected.to respond_to(:phone) }
   it { is_expected.to respond_to(:created_at) }
+  it { is_expected.to respond_to(:accounts) }
 
   it { is_expected.to be_valid }
 

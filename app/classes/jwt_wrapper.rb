@@ -4,7 +4,7 @@ class JWTWrapper
     expiration ||= Rails.application.secrets.jwt_expiration_hours
 
     payload = payload.dup
-    payload['exp'] = expiration.to_i.hours.from_now.to_i
+    payload["exp"] = expiration.to_i.hours.from_now.to_i
 
     JWT.encode payload, Rails.application.secrets.jwt_secret
   end
