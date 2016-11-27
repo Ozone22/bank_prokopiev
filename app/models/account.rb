@@ -2,6 +2,8 @@ class Account < ApplicationRecord
   before_save { self.current_balance = current_balance.round(2) }
 
   belongs_to :customer, class_name: "User"
+  has_many :sender_transactions, class_name: "Transaction", foreign_key: "sender_account_id"
+  has_many :recipient_transactions, class_name: "Transaction", foreign_key: "recipient_account_id"
 
   validates :account_type, presence: true
   validates :customer_id, presence: true
@@ -10,4 +12,8 @@ class Account < ApplicationRecord
   validates :current_balance, presence: true, numericality: true
 
   enum account_type: %i(debit credit)
+
+  def transactions
+    Transaction.where("sender_account_id = ? OR recipient_account_id = ?", self.id, self.id)
+  end
 end
