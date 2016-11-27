@@ -11,9 +11,7 @@ resource "Accounts" do
     header "Authorization", "Bearer #{token}"
   end
 
-  post "/v1/users/:user_id/accounts" do
-    let(:user_id) { current_user.id }
-
+  post "/v1/accounts" do
     with_options scope: :account do
       parameter :account_type, "Account type(debit, credit)", required: true
       parameter :account_number, "Account number(18 digits)", required: true
