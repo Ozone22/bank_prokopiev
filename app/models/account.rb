@@ -5,6 +5,10 @@ class Account < ApplicationRecord
   has_many :sender_transactions, class_name: "Transaction", foreign_key: "sender_account_id"
   has_many :recipient_transactions, class_name: "Transaction", foreign_key: "recipient_account_id"
 
+  scope :transactions, -> (account_id) {
+    Transaction.where("sender_account_id = ? OR recipient_account_id = ?", account_id, account_id)
+  }
+
   validates :account_type, presence: true
   validates :customer_id, presence: true
   validates :account_number, presence: true, uniqueness: { case_sensitive: false },
@@ -14,6 +18,6 @@ class Account < ApplicationRecord
   enum account_type: %i(debit credit)
 
   def transactions
-    Transaction.where("sender_account_id = ? OR recipient_account_id = ?", self.id, self.id)
+    Account.transactions(id)
   end
 end

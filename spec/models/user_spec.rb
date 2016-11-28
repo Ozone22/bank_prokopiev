@@ -11,6 +11,9 @@ describe User, type: :model do
   it { is_expected.to respond_to(:phone) }
   it { is_expected.to respond_to(:created_at) }
   it { is_expected.to respond_to(:accounts) }
+  it { is_expected.to respond_to(:sended_transactions) }
+  it { is_expected.to respond_to(:received_transactions) }
+  it { is_expected.to respond_to(:transactions) }
 
   it { is_expected.to be_valid }
 

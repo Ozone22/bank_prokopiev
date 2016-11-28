@@ -14,6 +14,9 @@ describe Account, type: :model do
   it { is_expected.to respond_to(:account_number) }
   it { is_expected.to respond_to(:current_balance) }
   it { is_expected.to respond_to(:closed_at) }
+  it { is_expected.to respond_to(:sender_transactions) }
+  it { is_expected.to respond_to(:recipient_transactions) }
+  it { is_expected.to respond_to(:transactions) }
 
   it { is_expected.to be_valid }
 
