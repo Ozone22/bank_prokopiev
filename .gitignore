@@ -17,6 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 .idea
+.vscode
 doc
 
 # Ignore Byebug command history file.
