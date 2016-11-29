@@ -21,7 +21,7 @@ resource "Sessions" do
     end
 
     example_request "Sign in with invalid password", session: { password: "" } do
-      expect(response_status).to eq 401
+      expect(response_status).to be 401
     end
   end
 end

@@ -2,8 +2,6 @@ require "rails_helper"
 require "rspec_api_documentation/dsl"
 
 resource "Users" do
-  header "Accept", "application/json"
-
   subject(:response) { json_response_body }
 
   post "/v1/users" do
@@ -24,7 +22,7 @@ resource "Users" do
 
     example "Registration with invalid data" do
       do_request(user: user.except(:password))
-      expect(response_status).to eq 422
+      expect(response_status).to be 422
       expect(response_body).to be_an_error_representation
     end
   end

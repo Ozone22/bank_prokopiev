@@ -6,11 +6,6 @@ resource "Accounts" do
 
   subject(:response) { json_response_body }
 
-  before do
-    header "Accept", "application/json"
-    header "Authorization", "Bearer #{token}"
-  end
-
   post "/v1/accounts" do
     with_options scope: :account do
       parameter :account_type, "Account type(debit, credit)", required: true
@@ -22,12 +17,12 @@ resource "Accounts" do
 
     example "Create account with valid data" do
       do_request(account: account)
-      expect(response_status).to eq 201
+      expect(response_status).to be 201
     end
 
     example "Create account with invalid data" do
       do_request(account: account.except(:account_number))
-      expect(response_status).to eql 422
+      expect(response_status).to be 422
       expect(response).to be_an_error_representation
     end
   end

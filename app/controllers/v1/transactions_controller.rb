@@ -18,6 +18,10 @@ module V1
       render json: transactions
     end
 
+    def show
+      render json: transaction
+    end
+
     private
 
     def transaction_params
@@ -29,7 +33,7 @@ module V1
     end
 
     def user_account
-      head :forbidden unless current_user.accounts.include? transaction.recipient_account
+      head :forbidden unless current_user.accounts.include? transaction.sender_account
     end
   end
 end

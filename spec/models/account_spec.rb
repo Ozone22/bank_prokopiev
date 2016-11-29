@@ -3,7 +3,7 @@ require "rails_helper"
 describe Account, type: :model do
   subject(:account) do
     attributes = attributes_for(:account)
-    attributes[:customer] =  customer
+    attributes[:customer] = customer
     described_class.new(attributes)
   end
 
@@ -39,6 +39,6 @@ describe Account, type: :model do
       account.save
     end
 
-    specify { expect(account.current_balance).to eql(123.45) }
+    specify { expect(account.current_balance).to be 123.45 }
   end
 end

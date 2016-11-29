@@ -5,15 +5,10 @@ resource "Accounts" do
   include_context "current user signed in"
 
   subject(:response) { json_response_body }
-  let(:account) { create(:account, customer: current_user) }
-
-  before do
-    header "Accept", "application/json"
-    header "Authorization", "Bearer #{token}"
-  end
 
   put "/v1/accounts/:id" do
     let(:id) { account.id }
+    let(:account) { create(:account, customer: current_user) }
 
     with_options scope: :account do
       parameter :account_type, "Account type(debit, credit)"
@@ -24,7 +19,7 @@ resource "Accounts" do
     let(:current_balance) { 120 }
 
     example_request "Update account balance" do
-      expect(response_status).to eq 204
+      expect(response_status).to be 204
     end
   end
 end
