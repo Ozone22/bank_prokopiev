@@ -15,7 +15,7 @@ resource "Transactions" do
              recipient_account: recipient_account)
     end
 
-    example_request "Get user accounts" do
+    example_request "Get current user transactions" do
       expect(response_status).to be 200
       expect(response["transactions"].first).to be_a_transaction_representation(transaction)
     end
