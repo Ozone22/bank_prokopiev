@@ -25,7 +25,7 @@ resource "Transactions" do
       expect(response_status).to be 201
     end
 
-    example "Create account with invalid data" do
+    example "Create transaction with invalid data" do
       do_request(transaction: transaction.except(:recipient_account_id))
       expect(response_status).to be 422
       expect(response).to be_an_error_representation
