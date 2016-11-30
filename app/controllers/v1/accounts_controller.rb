@@ -13,11 +13,11 @@ module V1
     end
 
     def create
-      account.customer = current_user
-      if account.save
-        head :created
-      else
+      result = Accounts::CreateAccount.call(current_user: current_user, account: account)
+      if result.failure?
         respond_with :v1, account
+      else
+        head :created
       end
     end
 
@@ -26,7 +26,7 @@ module V1
     end
 
     def update
-      if account.update_attributes(account_params)
+      if account.update_attributes(account_update_params)
         head :no_content
       else
         respond_with :v1, account
@@ -45,7 +45,11 @@ module V1
     end
 
     def account_params
-      params.require(:account).permit(:account_type, :account_number, :current_balance)
+      params.require(:account).permit(:account_type, :current_balance)
+    end
+
+    def account_update_params
+      params.require(:account).permit(:current_balance)
     end
   end
 end

@@ -11,8 +11,6 @@ resource "Accounts" do
     let(:account) { create(:account, customer: current_user) }
 
     with_options scope: :account do
-      parameter :account_type, "Account type(debit, credit)"
-      parameter :account_number, "Account number(18 digits)"
       parameter :current_balance, "Current balance (default 0)"
     end
 

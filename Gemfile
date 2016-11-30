@@ -14,6 +14,7 @@ gem 'interactor'
 gem 'responders'
 gem 'jwt'
 gem 'bcrypt'
+gem 'faker'
 
 group :test do
   gem 'capybara'
@@ -28,7 +29,6 @@ group :development, :test do
   gem 'rspec-its'
   gem 'factory_girl_rails'
   gem 'dotenv-rails'
-  gem 'faker'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
   gem 'rspec_api_documentation', branch: 'rspec-3.5'
