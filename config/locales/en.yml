@@ -28,5 +28,5 @@ en:
           wrong_pass: "must contain at least one digit and one latin capital letter"
         email:
           wrong_email: "wrong email"
-        phone:
-          format_error: "it's must have next format: 1-111-111-11-11"
+        amount:
+          insufficient_funds: "not enough money for this operation"

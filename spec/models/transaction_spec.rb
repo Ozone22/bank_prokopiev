@@ -23,4 +23,18 @@ describe Transaction, type: :model do
 
   it { is_expected.to validate_presence_of(:amount) }
   it { is_expected.to validate_numericality_of(:amount).is_greater_than 0 }
+
+  context "when not enough money for operation" do
+    let(:sender_account) { create(:account, current_balance: 100) }
+    let(:recipient_account) { create(:account, current_balance: 5) }
+
+    before do
+      transaction.sender_account = sender_account
+      transaction.recipient_account = recipient_account
+      transaction.amount = 110
+      transaction.save
+    end
+
+    specify { expect(transaction).not_to be_valid }
+  end
 end
