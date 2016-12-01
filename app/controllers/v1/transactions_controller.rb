@@ -7,10 +7,11 @@ module V1
     expose(:transactions) { user_transactions.order(created_at: :desc) }
 
     def create
-      if transaction.save
-        head :created
-      else
+      result = Transactions::CreateTransaction.call(transaction: transaction)
+      if result.failure?
         respond_with :v1, transaction
+      else
+        head :created
       end
     end
 

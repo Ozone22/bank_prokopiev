@@ -13,16 +13,20 @@ resource "Transactions" do
       parameter :amount, "Amount(greater than 0)"
     end
 
-    let(:sender_account) { create(:account, customer: current_user) }
-    let(:recipient_account) { create(:account, customer: create(:user)) }
+    let(:sender_account) { create(:account, customer: current_user, current_balance: 100) }
+    let(:recipient_account) { create(:account, customer: create(:user), current_balance: 5) }
     let(:transaction) do
-      attributes_for(:transaction, sender_account_id: sender_account.id,
-                     recipient_account_id: recipient_account.id)
+      attributes_for(:transaction,
+                     sender_account_id: sender_account.id,
+                     recipient_account_id: recipient_account.id,
+                     amount: 50)
     end
 
     example "Create transaction with valid data" do
       do_request(transaction: transaction)
       expect(response_status).to be 201
+      expect(sender_account.reload.current_balance).eql? 50
+      expect(recipient_account.reload.current_balance).eql? 55
     end
 
     example "Create transaction with invalid data" do
