@@ -1,5 +1,4 @@
 class JWTWrapper
-
   def self.encode(payload, expiration = nil)
     expiration ||= Rails.application.secrets.jwt_expiration_hours
 

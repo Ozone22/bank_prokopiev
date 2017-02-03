@@ -3,13 +3,13 @@ require "rails_helper"
 describe Accounts::CreateAccount do
   describe ".call" do
     let(:current_user) { create :user }
-    let(:account) { Account.new(current_balance: 100, account_type: 'debit') }
+    let(:account) { Account.new(current_balance: 100, account_type: "debit") }
 
     context "create account" do
       subject(:result) do
         described_class.call(
           current_user: current_user,
-            account: account
+          account: account
         ).account
       end
 

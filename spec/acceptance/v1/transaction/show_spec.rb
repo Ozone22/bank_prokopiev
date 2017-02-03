@@ -12,8 +12,8 @@ resource "Transactions" do
     let(:recipient_account) { create(:account, customer: create(:user)) }
     let!(:transaction) do
       create(:transaction,
-             sender_account: sender_account,
-             recipient_account: recipient_account)
+        sender_account: sender_account,
+        recipient_account: recipient_account)
     end
 
     example_request "Get transaction" do

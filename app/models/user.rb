@@ -5,13 +5,11 @@ class User < ApplicationRecord
   has_many :sended_transactions, through: :accounts, source: :sender_transactions
   has_many :received_transactions, through: :accounts, source: :recipient_transactions
 
-  validates :email, presence: true, email: true,
-            uniqueness: { case_sensitive: false }
-  validates :password, presence: true, password: true,
-            length: { minimum: 5, maximum: 100 }
+  validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
+  validates :password, presence: true, password: true, length: { minimum: 5, maximum: 100 }
   validates :first_name, :last_name, presence: true
   validates :phone, presence: true, uniqueness: { case_sensitive: false },
-            length: { is: 11 }, numericality: { only_integer: true }
+    length: { is: 11 }, numericality: { only_integer: true }
 
   has_secure_password
 

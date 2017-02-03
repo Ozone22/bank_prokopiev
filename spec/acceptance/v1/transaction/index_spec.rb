@@ -10,9 +10,7 @@ resource "Transactions" do
     let!(:sender_account) { create(:account, customer: current_user) }
     let!(:recipient_account) { create(:account, customer: create(:user)) }
     let!(:transaction) do
-      create(:transaction,
-             sender_account: sender_account,
-             recipient_account: recipient_account)
+      create(:transaction, sender_account: sender_account, recipient_account: recipient_account)
     end
 
     example_request "Get current user transactions" do

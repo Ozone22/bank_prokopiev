@@ -30,12 +30,12 @@ module V1
 
     def user_params
       params.require(:user).permit(
-          :first_name,
-          :middle_name,
-          :last_name,
-          :email,
-          :password,
-          :phone
+        :first_name,
+        :middle_name,
+        :last_name,
+        :email,
+        :password,
+        :phone
       )
     end
   end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :v1, defaults: { format: :json } do
-  	resources :users, only: %i(create show update) do
+    resources :users, only: %i(create show update) do
       resources :accounts, only: %i(index)
     end
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :sessions, only: %i(create)
     resources :transactions, only: %i(create index show)
 
-  	post 'sign_in', to: 'sessions#create'
-    post 'sign_up', to: 'users#create'
+    post "sign_in", to: "sessions#create"
+    post "sign_up", to: "users#create"
   end
 end

@@ -17,9 +17,9 @@ resource "Transactions" do
     let(:recipient_account) { create(:account, customer: create(:user), current_balance: 5) }
     let(:transaction) do
       attributes_for(:transaction,
-                     sender_account_id: sender_account.id,
-                     recipient_account_id: recipient_account.id,
-                     amount: 50)
+        sender_account_id: sender_account.id,
+        recipient_account_id: recipient_account.id,
+        amount: 50)
     end
 
     example "Create transaction with valid data" do
