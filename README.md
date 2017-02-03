@@ -1,24 +1,16 @@
-# README
+# Начало работа над "симуляцией банка"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+На данный момент реализовано:
 
-Things you may want to cover:
+* Регистрация, получение JWT токена
 
-* Ruby version
+* Возможность создавать банковские карты
 
-* System dependencies
+* Возможность проводить транзакций между пользователями и их картами
 
-* Configuration
+* Все покрыто тестами, написаны валидации моделей и написана документация
 
-* Database creation
+* Написаны скрипты для проверки качества кода(rspec/rubocop)
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
