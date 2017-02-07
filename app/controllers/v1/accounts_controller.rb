@@ -13,7 +13,7 @@ module V1
     end
 
     def create
-      result = Accounts::CreateAccount.call(current_user: current_user, account: account)
+      Accounts::CreateAccount.call(current_user: current_user, account: account)
       respond_with :v1, account
     end
 

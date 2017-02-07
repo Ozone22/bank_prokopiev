@@ -7,7 +7,7 @@ module V1
     expose(:transactions) { user_transactions.order(created_at: :desc) }
 
     def create
-      result = Transactions::CreateTransaction.call(transaction: transaction)
+      Transactions::CreateTransaction.call(transaction: transaction)
       respond_with :v1, transaction
     end
 
