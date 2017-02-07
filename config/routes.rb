@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     resources :users, only: %i(create show update) do
       resources :accounts, only: %i(index)
       resource :security, only: %i(update)
+      collection do
+        resources :passwords, only: %i(create update)
+      end
     end
 
     resources :accounts, only: %i(create show update destroy)

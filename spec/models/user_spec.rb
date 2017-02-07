@@ -15,6 +15,8 @@ describe User, type: :model do
   it { is_expected.to respond_to(:received_transactions) }
   it { is_expected.to respond_to(:transactions) }
   it { is_expected.to respond_to(:two_step_auth) }
+  it { is_expected.to respond_to(:password_reset_token) }
+  it { is_expected.to respond_to(:reset_token_sended_at) }
 
   it { is_expected.to be_valid }
 
