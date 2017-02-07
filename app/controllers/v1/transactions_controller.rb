@@ -8,11 +8,7 @@ module V1
 
     def create
       result = Transactions::CreateTransaction.call(transaction: transaction)
-      if result.failure?
-        respond_with :v1, transaction
-      else
-        head :created
-      end
+      respond_with :v1, transaction
     end
 
     def index

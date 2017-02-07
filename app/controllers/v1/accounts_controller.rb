@@ -14,11 +14,7 @@ module V1
 
     def create
       result = Accounts::CreateAccount.call(current_user: current_user, account: account)
-      if result.failure?
-        respond_with :v1, account
-      else
-        head :created
-      end
+      respond_with :v1, account
     end
 
     def index
@@ -26,11 +22,8 @@ module V1
     end
 
     def update
-      if account.update_attributes(account_update_params)
-        head :no_content
-      else
-        respond_with :v1, account
-      end
+      account.update_attributes(account_update_params)
+      respond_with :v1, account
     end
 
     def destroy

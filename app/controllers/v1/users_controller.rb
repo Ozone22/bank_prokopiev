@@ -15,11 +15,8 @@ module V1
     end
 
     def update
-      if user.update_attributes(user_params)
-        head :no_content
-      else
-        respond_with :v1, user
-      end
+      user.update_attributes(user_params)
+      respond_with :v1, user
     end
 
     def show
