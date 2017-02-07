@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :v1, defaults: { format: :json } do
     resources :users, only: %i(create show update) do
       resources :accounts, only: %i(index)
+      resource :security, only: %i(update)
     end
 
     resources :accounts, only: %i(create show update destroy)

@@ -6,6 +6,7 @@ RSpec::Matchers.define :be_a_user_representation do |user|
       phone
       first_name
       last_name
+      two_step_auth
     )
 
     expect(json).to be

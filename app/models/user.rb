@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  acts_as_google_authenticated
+
   before_save { email.downcase! }
 
   has_many :accounts, foreign_key: "customer_id"
@@ -20,5 +22,9 @@ class User < ApplicationRecord
           "ON accounts.id = transactions.recipient_account_id " \
           "OR accounts.id = transactions.sender_account_id"
       ).where("accounts.customer_id = ?", id).distinct
+  end
+
+  def two_step_auth_check(code = nil)
+    code.nil? ? !two_step_auth? : two_step_auth? && google_authentic?(code)
   end
 end

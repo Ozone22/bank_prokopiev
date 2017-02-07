@@ -9,9 +9,10 @@ resource "Sessions" do
   post "/v1/sign_in" do
     let(:user) { create :user }
 
-    with_options scope: :session, required: true do
-      parameter :email, "Email"
-      parameter :password, "Password"
+    with_options scope: :session do
+      parameter :email, "Email", required: true
+      parameter :password, "Password", required: true
+      parameter :google_secret, "Google auth code"
     end
 
     let(:email) { user.email }
