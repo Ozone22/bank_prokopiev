@@ -13,11 +13,12 @@ module V1
 
 		def update
 			user = User.find_by(password_reset_token: params[:id])
-			if user && user.reset_token_sended_at > 2.hours.ago
+			return head :not_found unless user
+			if user.reset_token_sended_at > 2.hours.ago
 				user.update_attributes(user_update_params)
 				render json: user
 			else
-				head :not_found
+				render json: { errors: "Reset time expired" }, status: :unprocessable_entity
 			end
 		end
 
