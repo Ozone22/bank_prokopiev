@@ -4,7 +4,7 @@ module V1
     before_action :user_account, only: %i(create)
 
     expose(:transaction)
-    expose(:transactions) { user_transactions.order(created_at: :desc) }
+    expose(:transactions) { paginated_transactions }
 
     def create
       Transactions::CreateTransaction.call(transaction: transaction)
@@ -20,6 +20,11 @@ module V1
     end
 
     private
+
+    def paginated_transactions
+      transactions = user_transactions.order(created_at: :desc)
+      transactions.page(params[:page]).per(params[:per_page] || 5)
+    end
 
     def transaction_params
       params.require(:transaction).permit(:recipient_account_id, :sender_account_id, :amount)

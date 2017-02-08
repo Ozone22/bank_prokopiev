@@ -6,7 +6,7 @@ module V1
 
     expose(:user)
     expose(:account)
-    expose(:accounts) { user.accounts }
+    expose(:accounts) { paginated_accounts }
 
     def show
       respond_with :v1, account
@@ -32,6 +32,10 @@ module V1
     end
 
     private
+
+    def paginated_accounts
+      user.accounts.page(params[:page]).per(params[:per_page] || 5)
+    end
 
     def account_owner
       head :forbidden unless account.customer == current_user

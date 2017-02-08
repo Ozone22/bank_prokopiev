@@ -15,6 +15,7 @@ gem "jwt"
 gem "bcrypt"
 gem "faker"
 gem "google-authenticator-rails"
+gem "kaminari", git: "https://github.com/amatsuda/kaminari"
 
 group :test do
   gem "capybara"

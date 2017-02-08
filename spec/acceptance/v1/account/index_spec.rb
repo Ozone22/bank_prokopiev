@@ -12,7 +12,7 @@ resource "Accounts" do
 
     example_request "Get user accounts" do
       expect(response_status).to be 200
-      expect(response["accounts"].first).to be_a_account_representation(account)
+      expect(response["data"].first).to be_a_account_representation(account)
     end
   end
 end

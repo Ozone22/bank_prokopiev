@@ -1,4 +1,21 @@
 GIT
+  remote: https://github.com/amatsuda/kaminari
+  revision: 011cd6c783d5165e0e542c2b3c1a9e0018631aab
+  specs:
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
+
+GIT
   remote: https://github.com/rails-api/active_model_serializers.git
   revision: d0de53cbb2c2c4f8c3367e8fe4b984eabd8bfd56
   specs:
@@ -248,6 +265,7 @@ DEPENDENCIES
   interactor
   json_spec
   jwt
+  kaminari!
   listen (~> 3.0.5)
   pg
   puma (~> 3.0)
