@@ -118,7 +118,7 @@ table th, table td {
 
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /v1/users/1897</pre>
+          <pre class="request route highlight">GET /v1/users/2309</pre>
 
 
 
@@ -130,16 +130,23 @@ table th, table td {
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;user&quot;: {
-    &quot;id&quot;: 1897,
-    &quot;email&quot;: &quot;lance@schuppe.name&quot;,
-    &quot;first_name&quot;: &quot;Presley&quot;,
-    &quot;last_name&quot;: &quot;Goyette&quot;,
-    &quot;phone&quot;: &quot;48444562949&quot;,
-    &quot;two_step_auth&quot;: false,
-    &quot;accounts&quot;: [
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;2309&quot;,
+    &quot;type&quot;: &quot;users&quot;,
+    &quot;attributes&quot;: {
+      &quot;email&quot;: &quot;eino@monahan.io&quot;,
+      &quot;first-name&quot;: &quot;Tiara&quot;,
+      &quot;last-name&quot;: &quot;Schimmel&quot;,
+      &quot;phone&quot;: &quot;72120696413&quot;,
+      &quot;two-step-auth&quot;: false
+    },
+    &quot;relationships&quot;: {
+      &quot;accounts&quot;: {
+        &quot;data&quot;: [
 
-    ]
+        ]
+      }
+    }
   }
 }</pre>
       </div>

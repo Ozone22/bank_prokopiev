@@ -6,7 +6,10 @@ resource "Transactions" do
 
   subject(:response) { json_response_body }
 
-  get "/v1/transactions" do
+  get "/v1/transactions?page=:page_number&per_page=:per_page" do
+    let(:page_number) { 1 }
+    let(:per_page) { 1 }
+    
     let!(:sender_account) { create(:account, customer: current_user) }
     let!(:recipient_account) { create(:account, customer: create(:user)) }
     let!(:transaction) do

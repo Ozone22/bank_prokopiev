@@ -6,8 +6,11 @@ resource "Accounts" do
 
   subject(:response) { json_response_body }
 
-  get "/v1/users/:user_id/accounts" do
+  get "/v1/users/:user_id/accounts?page=:page_number&per_page=:per_page" do
     let(:user_id) { current_user.id }
+    let(:page_number) { 1 }
+    let(:per_page) { 1 }
+    
     let!(:account) { create(:account, customer: current_user) }
 
     example_request "Get user accounts" do
