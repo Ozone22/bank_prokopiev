@@ -1,3 +1,3 @@
 ActiveModel::Serializer.configure do |config|
-  config.adapter = :json_api
+  config.adapter = :json
 end
