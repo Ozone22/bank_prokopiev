@@ -12,7 +12,7 @@ module V1
     end
 
     def index
-      render json: transactions
+      render json: transactions, meta: pagination_info(transactions)
     end
 
     def show

@@ -18,7 +18,7 @@ module V1
     end
 
     def index
-      render json: accounts
+      render json: accounts, meta: pagination_info(accounts)
     end
 
     def update
